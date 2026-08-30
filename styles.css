@@ -1,0 +1,199 @@
+/* =========================================================
+   Reset básico y variables de color
+   Paleta pensada para contraste AA: texto oscuro sobre fondo
+   claro, y acentos con suficiente contraste sobre blanco.
+   ========================================================= */
+:root {
+  --color-fondo: #faf7f2;
+  --color-texto: #1c1c1c;
+  --color-principal: #0f4c5c;
+  --color-acento: #d97757;
+  --color-tarjeta: #ffffff;
+  --color-borde: #ddd6cb;
+  --fuente-titulo: "Georgia", "Times New Roman", serif;
+  --fuente-cuerpo: "Segoe UI", Verdana, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fuente-cuerpo);
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: var(--fuente-titulo);
+  color: var(--color-principal);
+}
+
+/* =========================================================
+   Enlace de salto: oculto visualmente hasta recibir foco
+   ========================================================= */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  background: var(--color-principal);
+  color: #fff;
+  padding: 0.75rem 1rem;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+/* Foco visible en todos los elementos interactivos */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--color-acento);
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   Header y navegación
+   ========================================================= */
+.sitio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.25rem 2rem;
+  background-color: var(--color-principal);
+  color: #fff;
+}
+
+.sitio-header .logo {
+  margin: 0;
+  font-family: var(--fuente-titulo);
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+.sitio-header .logo span {
+  color: var(--color-acento);
+}
+
+.sitio-header nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.sitio-header nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.sitio-header nav a:hover,
+.sitio-header nav a:focus-visible {
+  text-decoration: underline;
+}
+
+/* =========================================================
+   Secciones principales
+   ========================================================= */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+.intro-grid {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.intro-grid img {
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.tarjeta {
+  background-color: var(--color-tarjeta);
+  border: 1px solid var(--color-borde);
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+/* =========================================================
+   Lista de riesgos y dato curioso
+   ========================================================= */
+.lista-riesgos {
+  padding-left: 1.4rem;
+}
+
+.lista-riesgos li {
+  margin-bottom: 0.6rem;
+}
+
+.dato-curioso {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  background-color: var(--color-tarjeta);
+  border-left: 5px solid var(--color-acento);
+  border-radius: 6px;
+}
+
+.dato-curioso h3 {
+  margin-top: 0;
+}
+
+/* =========================================================
+   Conclusión
+   ========================================================= */
+#conclusion p {
+  max-width: 720px;
+}
+
+/* =========================================================
+   Footer
+   ========================================================= */
+
+.sitio-footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: var(--color-principal);
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width: 600px) {
+  .sitio-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .intro-grid {
+    flex-direction: column;
+    text-align: center;
+  }
+}
